@@ -1,6 +1,6 @@
 # visTrends
 
-Piloto de Visualizador de Tendencias para México
+Visualizador de Tendencias de Anomalías de NDVI para México
 
 ## Instrucciones de instalación
 
