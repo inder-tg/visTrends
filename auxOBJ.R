@@ -25,6 +25,12 @@ BREAKS <- c(-Inf,-0.15,-0.07,-0.03,0,0.03,0.07,0.15,Inf)
 
 listDIRS <- list.dirs(path = paste0( getwd(), "/TIF" ) )[-1]
 
+boundsMat <- matrix(nrow=7,ncol=4)
+
+boundsMat[3,] <- c(-118.3660, 28.0279, -115.10, 32.62113)
+
+# "#bebebe22"
+
 # listFILES <- list.files(path = listDIRS[1], pattern = ".tif$", full.names = TRUE )
 
 

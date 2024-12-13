@@ -25,7 +25,7 @@ ui <- dashboardPage(
                .fa-envelope {color:#2ca25f}
                .fa-github {color:#2ca25f}
                .fa-r-project {color:#2ca25f}
-               .fa-eye {color:#2ca25f stye:bold}"
+               .fa-eye {color:#2ca25f}"
     ),
     
     sidebarMenu(
@@ -151,7 +151,8 @@ ui <- dashboardPage(
                          selectInput("selectEcoregion", NULL,
                                      choices = c("Grandes Planicies", "Desiertos de América del Norte",
                                                  "California Mediterranea", "Elevaciones Semiaridas Meridionales",
-                                                 "Sierras Templadas", "Selvas Cálido-Secas", "Selvas Cálido-Humedas"))
+                                                 "Sierras Templadas", "Selvas Cálido-Secas", "Selvas Cálido-Humedas"),
+                                     selected = "California Mediterranea")
                   ),
                   # tags$label(" Vegetation Indx", `for` = "selectVI"),
                   # column(2,
@@ -162,11 +163,22 @@ ui <- dashboardPage(
 
               ),
               
+              # fluidRow(
+              #   column(8, wellPanel(
+              #     leafletOutput("visualizador", width = "100%", height = 600))
+              #   )
+              # )
+              
               fluidRow(
-                column(8, wellPanel(
-                  leafletOutput("visualizador", width = "100%", height = 600))
+                column(8, withSpinner(
+                  leafletOutput("visualizador", width = "100%", height = 600),
+                  type=4,
+                  color="#d33724",
+                  size=0.7)
                 )
               )
+              
+              
               
               # fluidRow(
               #   column(6, #wellPanel(

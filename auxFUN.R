@@ -109,7 +109,8 @@ render_leaflet <- function(map, file, group, color, breaks){
       # layerId = layerId,
       colorOptions = leafem::colorOptions(
         palette = color,
-        breaks = breaks
+        breaks = breaks,
+        na.color = "transparent"
       )
     )
 }

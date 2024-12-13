@@ -58,8 +58,9 @@ function(input, output, session) {
     
     mapBASE <- leaflet() %>%
       addProviderTiles("Esri.WorldImagery")
+
     cont <- 0
-    prueba <- paste0("test", 1:length(listFILES))
+    prueba <- paste0("test", 1:length(listFILES)) # 1:length(listFILES)
     while( cont < length(listFILES) ){
       cont <- cont + 1
       MAP <- render_leaflet(map = mapBASE, 
@@ -71,6 +72,11 @@ function(input, output, session) {
     }
     
     MAP %>%
+      addResetMapButton() %>%
+      fitBounds(lng1=boundsMat[3,][1],
+                lat1=boundsMat[3,][2],
+                lng2=boundsMat[3,][3],
+                lat2=boundsMat[3,][4]) %>%
       addLayersControl(
         overlayGroups = prueba,
         options = layersControlOptions(collapsed = TRUE)

@@ -54,6 +54,7 @@ library(fontawesome)
 
 library(leaflet.extras)
 library(stars)
+# library(terra)
 # library(bfast)
 # library(imputeTS)
 
