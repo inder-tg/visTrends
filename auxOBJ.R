@@ -14,8 +14,8 @@ ecoRegions <- c("Grandes Planicies", "Desiertos de America del Norte",
 #                      "sierrasTempladas"))
 
 shortEcoregions <- c("grandesPlanicies", "desiertos", "califMediterranea", "elevaciones",
-                     "sierrasTempladas", 
-                     "selvasCalidoSecas", "selvasCalidoHumedas")
+                     "sierrasTempladas", "selvasCalidoSecas", 
+                     "selvasCalidoHumedas")
 
 
 colPal <- c("#b2182b", "#f3a07e", "#fce1d2",
@@ -26,14 +26,21 @@ BREAKS <- c(-Inf,-0.15,-0.07,-0.03,0,0.03,0.07,0.15,Inf)
 
 listDIRS <- list.dirs(path = paste0( getwd(), "/TIF" ) )[-1]
 
-listDIRS_correct <- c(listDIRS[4], listDIRS[2], listDIRS[1], listDIRS[3])
+listDIRS_correct <- c(listDIRS[4], listDIRS[2], listDIRS[1], listDIRS[3],
+                      listDIRS[6], listDIRS[5])
 
-boundsMat <- matrix(nrow=4,ncol=4)
+boundsMat <- matrix(nrow=7,ncol=4)
 
-boundsMat[1,] <- c(-102.2080, 23.1630, -97.1439, 29.4866)
-boundsMat[2,] <- c(-116.0544, 21.5352, -99.5734, 32.7173)
-boundsMat[3,] <- c(-118.3660, 28.0279, -115.10, 32.62113)
-boundsMat[4,] <- c(-111.5834, 19.6545, -98.77, 31.4939)
+boundsMat[1,] <- c(-102.2080, 23.1630, -97.1439, 29.4866) # grandes
+boundsMat[2,] <- c(-116.0544, 21.5352, -99.5734, 32.7173) # desiertos
+boundsMat[3,] <- c(-118.3660, 28.0279, -115.10, 32.62113) # california
+boundsMat[4,] <- c(-111.5834, 19.6545, -98.77, 31.4939) # elevaciones
+
+
+boundsMat[5,] <- c(-109.4327, 15.0838, -91.2535, 30.8872)
+boundsMat[6,] <- c(-114.7602, 15.5672, -87.3754, 30.2719)
+
+boundsMat[7,] <- c(-114.7602, 15.5672, -87.3754, 30.2719)
 
 testList <- vector("list", 4)
 
@@ -41,6 +48,8 @@ testList[[1]] <- c(1,7,13:14)
 testList[[2]] <- c(5,7,10,13:15)
 testList[[3]] <- 1:6
 testList[[4]] <- c(3:5,9)
+testList[[5]] <- c(2,7,10,29,34,39)
+testList[[6]] <- c(7:8, 15)
 
 shp_lonlat <- LoadToEnvironment(paste0( getwd(), "/extras/ecoRegions_lonlat.RData" ))$shp_lonlat
 

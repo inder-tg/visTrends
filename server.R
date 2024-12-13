@@ -21,13 +21,13 @@ function(input, output, session) {
       DIR <- 4
     }
     
-    # if( input$selectEcoregion == "Sierras Templadas" ){
-    #   DIR <- 1
-    # }
-    # 
-    # if( input$selectEcoregion == "Selvas Cálido-Secas" ){
-    #   DIR <- 1
-    # }
+    if( input$selectEcoregion == "Sierras Templadas" ){
+      DIR <- 5
+    }
+
+    if( input$selectEcoregion == "Selvas Cálido-Secas" ){
+      DIR <- 6
+    }
     # 
     # if( input$selectEcoregion == "Selvas Cálido-Humedas" ){
     #   DIR <- 1
