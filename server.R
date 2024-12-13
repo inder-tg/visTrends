@@ -1,26 +1,6 @@
 
 function(input, output, session) {
   
-  # inputParams <- reactiveValues()
-  # 
-  # observeEvent(input$SIGN,{
-  #   sign <- 0:3
-  #   
-  #   temp <- unlist(lapply(input$SIGN, function(s) which(signChoices==s)))
-  #   
-  #   inputParams$SIGN <- sign[temp]
-  #   
-  #   # print(inputParams$SIGN)
-  # })
-  
-  # observeEvent(input$TYPE, {
-  #   type <- 1:8
-  # 
-  #   temp <- unlist(lapply(input$TYPE, function(s) which(typeChoices==s)))
-  #   
-  #   inputParams$TYPE <- type[temp]
-  # })
-
   initialMapview <- reactiveValues(doMap=FALSE)
   
   getMapview <- function(){
@@ -30,37 +10,37 @@ function(input, output, session) {
     }
     
     if( input$selectEcoregion == "Desiertos de América del Norte" ){
-      DIR <- 1
+      DIR <- 2
     }
     
     if( input$selectEcoregion == "California Mediterranea" ){
-      DIR <- 1
+      DIR <- 3
     }
     
     if( input$selectEcoregion == "Elevaciones Semiaridas Meridionales" ){
-      DIR <- 1
+      DIR <- 4
     }
     
-    if( input$selectEcoregion == "Sierras Templadas" ){
-      DIR <- 1
-    }
+    # if( input$selectEcoregion == "Sierras Templadas" ){
+    #   DIR <- 1
+    # }
+    # 
+    # if( input$selectEcoregion == "Selvas Cálido-Secas" ){
+    #   DIR <- 1
+    # }
+    # 
+    # if( input$selectEcoregion == "Selvas Cálido-Humedas" ){
+    #   DIR <- 1
+    # }
     
-    if( input$selectEcoregion == "Selvas Cálido-Secas" ){
-      DIR <- 1
-    }
-    
-    if( input$selectEcoregion == "Selvas Cálido-Humedas" ){
-      DIR <- 1
-    }
-    
-    listFILES <- list.files(path = listDIRS[DIR], 
-                            pattern = ".tif$", full.names = TRUE )
+    listFILES <- mixedsort(list.files(path = listDIRS_correct[DIR], 
+                                      pattern = ".tif$", full.names = TRUE ))
     
     mapBASE <- leaflet() %>%
       addProviderTiles("Esri.WorldImagery")
 
     cont <- 0
-    prueba <- paste0("test", 1:length(listFILES)) # 1:length(listFILES)
+    prueba <- paste0("test", testList[[DIR]]) # 1:length(listFILES)
     while( cont < length(listFILES) ){
       cont <- cont + 1
       MAP <- render_leaflet(map = mapBASE, 
@@ -73,10 +53,17 @@ function(input, output, session) {
     
     MAP %>%
       addResetMapButton() %>%
-      fitBounds(lng1=boundsMat[3,][1],
-                lat1=boundsMat[3,][2],
-                lng2=boundsMat[3,][3],
-                lat2=boundsMat[3,][4]) %>%
+      addPolygons(data=shp_lonlat[[DIR]], 
+                  weight = 5,
+                  fill = FALSE,
+                  # color = purepechas$Color,
+                  # fillColor = purepechas$Color,
+                  fillOpacity = 0.0125) %>% #,
+                  # label = ~lapply(paste(s_lonlat$Z_SAGRADA), HTML))
+      fitBounds(lng1=boundsMat[DIR,][1],
+                lat1=boundsMat[DIR,][2],
+                lng2=boundsMat[DIR,][3],
+                lat2=boundsMat[DIR,][4]) %>%
       addLayersControl(
         overlayGroups = prueba,
         options = layersControlOptions(collapsed = TRUE)

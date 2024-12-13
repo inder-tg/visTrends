@@ -115,6 +115,11 @@ render_leaflet <- function(map, file, group, color, breaks){
     )
 }
 
+LoadToEnvironment <- function(RData, env = new.env()){
+  load(RData, env)
+  return(env) 
+}
+
 # update_all <- function(x, choices) {
 #   updateSelectInput(session, "tab",
 #                     choices = choices,

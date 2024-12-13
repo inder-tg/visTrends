@@ -11,7 +11,7 @@
 # -----------------------------------------------------------------------------
 
 neededPackages <- c("shiny", "shinydashboard", "mapview", "leaflet",
-                    "leafem", "htmltools", "sf",
+                    "leafem", "htmltools", "sf", "gtools",
                     "gtools", "shinycssloaders", "shinyjs",
                     "shinyBS", "ggplot2", "dplyr", "terra",
                     "shinyWidgets", "fontawesome", "leaflet.extras",
@@ -54,6 +54,7 @@ library(fontawesome)
 
 library(leaflet.extras)
 library(stars)
+library(gtools)
 # library(terra)
 # library(bfast)
 # library(imputeTS)

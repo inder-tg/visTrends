@@ -150,8 +150,9 @@ ui <- dashboardPage(
                   column(2,
                          selectInput("selectEcoregion", NULL,
                                      choices = c("Grandes Planicies", "Desiertos de América del Norte",
-                                                 "California Mediterranea", "Elevaciones Semiaridas Meridionales",
-                                                 "Sierras Templadas", "Selvas Cálido-Secas", "Selvas Cálido-Humedas"),
+                                                 "California Mediterranea", "Elevaciones Semiaridas Meridionales"),
+                                                 # ,
+                                                 # "Sierras Templadas", "Selvas Cálido-Secas", "Selvas Cálido-Humedas"),
                                      selected = "California Mediterranea")
                   ),
                   # tags$label(" Vegetation Indx", `for` = "selectVI"),
