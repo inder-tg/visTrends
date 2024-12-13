@@ -67,7 +67,12 @@ function(input, output, session) {
       addLayersControl(
         overlayGroups = prueba,
         options = layersControlOptions(collapsed = TRUE)
-      )
+      ) %>%
+      addLegend(position = "bottomleft",
+                na.label = "",
+                colors = colPal,
+                labels = leafletLABELS,
+                title = "Tipo de tendencia")
     
     
 

@@ -44,6 +44,19 @@ testList[[4]] <- c(3:5,9)
 
 shp_lonlat <- LoadToEnvironment(paste0( getwd(), "/extras/ecoRegions_lonlat.RData" ))$shp_lonlat
 
+# Muy alta negativa
+# Alta Negativa
+# Regular negativa
+# Baja negativa
+# Baja positiva
+# Regular positiva
+# Alta positiva
+# Muy alta positiva
+
+
+leafletLABELS <- c("Muy alta negativa", "Alta Negativa", "Regular negativa",
+                   "Baja negativa", "Baja positiva", "Regular positiva",
+                   "Alta positiva", "Muy alta positiva")
 
 # "#bebebe22"
 
