@@ -13,8 +13,12 @@ Visualizador de Tendencias de Anomalías de NDVI para México
 
 ## Instrucciones para ejecutar el shiny app
 
-1. Ejecuta cualquiera de los archivos _ui.R_ o _server.R_
+1. Después de haber clonado este repositorio en tu sistema local, ejecuta cualquiera de los archivos _ui.R_ o _server.R_
 
 
 ## Reporta errores a itecuapetla@conabio.gob.mx
+
+## Sobre la carpeta TIF
+
+Debido a restricciones de GitHub, en este repositorio sólo podemos distribuir archivos cuyo tamaño no sea mayor a 50 Mb.
 
