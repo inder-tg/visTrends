@@ -66,9 +66,11 @@ function(input, output, session) {
                 lat2=boundsMat[DIR,][4]) %>%
       addLayersControl(
         overlayGroups = prueba,
+        position = "bottomleft",
         options = layersControlOptions(collapsed = TRUE)
       ) %>%
-      addLegend(position = "bottomleft",
+      addLegend(position = "topright",
+                opacity = 1,
                 na.label = "",
                 colors = colPal,
                 labels = leafletLABELS,
